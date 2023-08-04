@@ -1,0 +1,10 @@
+<div class="task-box">
+
+    <form>
+      <div>
+        <textarea id="description" [(ngModel)]="newTask.description" name="description" placeholder="Enter task" (keydown.enter)="onEnterKey($event)"></textarea>
+      </div>
+      <button type="button" (click)="addTask()">Add Task</button>
+    </form>
+  </div>
+  

@@ -1,0 +1,25 @@
+<div class="task-list">
+  <h3>My List</h3>
+  <ul>
+    <div class=" task-list">
+    <li *ngFor="let task of tasks">
+      
+      <span (click)="toggleTaskCompletion(task)" [ngStyle]="task.completed ? {'text-decoration': 'line-through'} : {}">{{ task.description }}</span>
+      <button (click)="deleteTask(task)" style="margin-left: 10px;">delete</button>
+      
+    </li>
+    </div>
+  </ul>
+
+  <h3 *ngIf="isCompletedTasksVisible">Completed Task List</h3>
+  <ul *ngIf="isCompletedTasksVisible" class="completed-list">
+    <li *ngFor="let task of completedTasks">
+      <span (click)="toggleTaskCompletion(task)">{{ task.description }}</span>
+    </li>
+  </ul>
+
+  <button *ngIf="!isCompletedTasksVisible" (click)="showCompletedTasks()" style="margin-bottom: 10px;">Show Completed Tasks</button>
+  <button *ngIf="isCompletedTasksVisible" (click)="hideCompletedTasks()" style="margin-bottom: 10px;">Hide Completed Tasks</button>
+
+  <button type="button" (click)="resetList()" style="margin-left: 10px;">Reset List</button>
+</div>
